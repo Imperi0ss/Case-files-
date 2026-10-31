@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10070b">
+  <title>CASE FILES — THE LAST SECRET</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="particles"></div>
+
+<header class="topbar">
+  <div class="brand">C.F. <span>///</span> SETH</div>
+  <div class="classified">CLASSIFIED • LEVEL 05</div>
+  <button id="musicBtn" onclick="toggleMusic()">♫ MUSIC ON</button>
+</header>
+
+<audio id="music" loop preload="auto">
+  <source src="assets/cigarette-duet.m4a" type="audio/mp4">
+</audio>
+
+<main>
+
+  <section id="intro" class="screen active">
+    <div class="intro-content">
+      <p class="eyebrow">CONFIDENTIAL INVESTIGATION UNIT</p>
+      <h1>CASE <span>FILES</span></h1>
+      <div class="ornament">✦ ━━━━━━━━━ ✦</div>
+      <h2>THE LAST SECRET</h2>
+      <p class="subtitle">Some secrets should have stayed buried.</p>
+
+      <div class="warning">
+        <span>RESTRICTED ACCESS</span>
+        <p>Expediente 008 — La última noche de Blackwood.</p>
+      </div>
+
+      <button class="primary-btn" onclick="startGame()">
+        START INVESTIGATION
+      </button>
+
+      <p class="small">SETH DETECTIVE SYSTEM • EST. 2026</p>
+    </div>
+  </section>
+
+  <section id="briefing" class="screen">
+    <p class="eyebrow">CASE 008 / INITIAL REPORT</p>
+    <h2>La última noche de Blackwood</h2>
+
+    <div class="paper">
+      <p>La noche del 31 de octubre, durante una reunión privada en la mansión Blackwood, el coleccionista Elias Voss fue encontrado sin vida en su despacho.</p>
+      <p>Ocho invitados estuvieron presentes. Todos aseguran no haber entrado al despacho durante el intervalo decisivo.</p>
+      <p>Sin embargo, los registros de la mansión y sus testimonios contienen contradicciones.</p>
+      <p class="red-text">Ocho sospechosos. Una verdad. Ninguna coartada es completamente segura.</p>
+    </div>
+
+    <button class="primary-btn" onclick="showScreen('investigation')">
+      OPEN CASE FILE
+    </button>
+  </section>
+
+  <section id="investigation" class="screen">
+    <div class="section-heading">
+      <p class="eyebrow">INVESTIGATION DATABASE</p>
+      <h2>Expediente <span>008</span></h2>
+    </div>
+
+    <div class="stats">
+      <div>PISTAS <strong id="clueCount">0/8</strong></div>
+      <div>TIEMPO <strong id="timer">00:00</strong></div>
+      <div>ESTADO <strong>OPEN</strong></div>
+    </div>
+
+    <h3 class="subheading">I. SOSPECHOSOS</h3>
+    <div id="suspects" class="suspect-grid"></div>
+
+    <h3 class="subheading">II. ARCHIVO DE EVIDENCIAS</h3>
+    <div id="clues" class="clue-grid"></div>
+
+    <h3 class="subheading">III. PANEL DE DEDUCCIÓN</h3>
+
+    <div class="paper">
+      <p>Revisa las declaraciones, compara los horarios y reúne las pruebas antes de realizar tu acusación.</p>
+      <p id="progressText">Todavía no has descubierto suficientes evidencias.</p>
+    </div>
+
+    <button class="primary-btn" onclick="showScreen('accusation')">
+      MAKE YOUR ACCUSATION
+    </button>
+  </section>
+
+  <section id="accusation" class="screen">
+    <p class="eyebrow">FINAL INVESTIGATION REPORT</p>
+    <h2>¿Quién es el responsable?</h2>
+    <p class="subtitle">Selecciona al sospechoso y demuestra tu teoría.</p>
+
+    <label for="culprit">IDENTIFICACIÓN DEL SOSPECHOSO</label>
+
+    <select id="culprit">
+      <option value="">Selecciona un personaje</option>
+    </select>
+
+    <label for="reason">MOTIVO DE LA ACUSACIÓN</label>
+
+    <textarea id="reason" placeholder="Explica qué sucedió y qué evidencias respaldan tu teoría..."></textarea>
+
+    <button class="primary-btn" onclick="submitAccusation()">
+      CONFIRM ACCUSATION
+    </button>
+
+    <button class="secondary-btn" onclick="showScreen('investigation')">
+      RETURN TO INVESTIGATION
+    </button>
+  </section>
+
+  <section id="result" class="screen">
+    <div id="resultContent"></div>
+  </section>
+
+</main>
+
+<footer>
+  <span>SETH SYSTEMS</span>
+  <span>ALL CASES ARE FICTIONAL</span>
+  <span>© 2026</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
